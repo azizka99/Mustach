@@ -1,0 +1,40 @@
+﻿@model MustacheEnt.ViewModel.HomeViewModel
+<div id="body">
+	<div id="featured">
+		@foreach (var item in Model.IndexList)
+		{
+			<img src="@item.MainPicSrc" alt="">
+			<div>
+				<h2>@item.MainPicsTextTitle</h2>
+				<span>@item.MainPicsTextBody1</span>
+				<span>@item.MainPicsTextBody2</span>
+				<span>@item.MainPicsTextBody3</span>
+				<a href="@Url.Action("About", "Home")" class="more">@item.MainPicsTextButton</a>
+			</div>
+		}
+		
+	</div>
+	<ul>
+		@foreach (var item in Model.IndexList)
+		{
+			<li>
+				<a href="@Url.Action("Gallery", "Gall")">
+					<img src="@item.LeftPicSrc" alt="">
+					<span>@item.LeftPicTitleText</span>
+				</a>
+			</li>
+			<li>
+				<a href="@Url.Action("Gallery", "Gall")">
+					<img src="@item.CenterPicSrc" alt="">
+					<span>@item.CenterPicTitleText</span>
+				</a>
+			</li>
+			<li>
+				<a href="@Url.Action("Gallery", "Gall")">
+					<img src="@item.RightPicSrc" alt="">
+					<span>@item.RightPicTitleText</span>
+				</a>
+			</li>
+		}
+	</ul>
+	</div>

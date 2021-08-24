@@ -1,0 +1,15 @@
+﻿@model MustacheEnt.ViewModel.HomeViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<div id="body">
+    <h1><span>gallery</span></h1>
+    <ul class="gallery">
+        @foreach (var item in Model.Galleries)
+        {
+            <li>
+                <a asp-action="SinglePageGallery" asp-controller="Gall" asp-route-id="@item.Id">
+                    <img src="~/@item.Src" alt="">
+                </a>
+            </li>
+        }
+    </ul>
+</div>

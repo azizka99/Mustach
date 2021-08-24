@@ -1,0 +1,27 @@
+﻿@model MustacheEnt.ViewModel.BlogViewModel
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout1";
+}
+<div id="body">
+    <h1><span>blog</span></h1>
+    <div>
+        <ul>
+            @foreach (var item in Model.Blogs)
+            {
+                <li>
+                    <a asp-action="BlogSinglePost" asp-controller="Blog" asp-route-id="@item.Id" class="figure">
+                        <img src="~/@item.PicSrc" alt="">
+                    </a>
+                    <div>
+                        <h3>@item.Title</h3>
+                        <p>@item.FrontDesc</p>
+                        <a asp-action="BlogSinglePost" asp-controller="Blog" asp-route-id="@item.Id" class="more">read this</a>
+                    </div>
+                </li>
+            }
+            
+
+        </ul>
+    </div>
+</div>
